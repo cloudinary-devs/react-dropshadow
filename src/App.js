@@ -11,7 +11,8 @@ import {Cloudinary} from "@cloudinary/url-gen";
 // Import any actions required for transformations.
 import {fill} from "@cloudinary/url-gen/actions/resize";
 import { backgroundRemoval, dropShadow } from "@cloudinary/url-gen/actions/effect";
-import ProductGalleryWidget from './components/ProductGalleryWidget';
+//import ProductGalleryWidget from './components/ProductGalleryWidget';
+import PhotoAlbumComponent from './components/PhotoAlbum';
 
 const App = () => {
 
@@ -54,7 +55,7 @@ const App = () => {
       <div>
         <AdvancedImage cldImg={myImage} />
       </div>
-      <ProductGalleryWidget />
+      <PhotoAlbumComponent />
     </div>
   )
 
