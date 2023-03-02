@@ -1,0 +1,11 @@
+.App-body {
+  text-align: center;
+  font-size: calc(8px + 2vmin);
+  color: black;
+}
+
+.gallery {
+  max-width:80%;
+  margin:auto;
+}
+
