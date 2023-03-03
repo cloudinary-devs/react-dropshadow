@@ -9,11 +9,16 @@ import PhotoAlbumComponent from './PhotoAlbum';
 
 export default function RadioButtons() {
   const [value, setValue] = React.useState('original');
+  const [azimuth, setAzimuth] = React.useState(200);
 
   const setDisplay = (event) => {
     setValue((event.target).value);
-
+    setAz(15);
   };
+
+  const setAz = (az) => {
+    setAzimuth(az);
+  }
 
   return (
     <div>
@@ -24,6 +29,7 @@ export default function RadioButtons() {
             aria-labelledby="demo-radio-buttons-group-label"
             name="radio-buttons-group"
             value={value}
+            azimuth={azimuth}
             onChange={setDisplay}
         >
             <FormControlLabel value="original" control={<Radio />} label="Original" />
@@ -31,7 +37,7 @@ export default function RadioButtons() {
             <FormControlLabel value="shadow" control={<Radio />} label="Drop Shadow" />
         </RadioGroup>
         </FormControl>
-        <PhotoAlbumComponent data={value}/>
+        <PhotoAlbumComponent data={{value: value, az: azimuth}}/>
     </div>
   );
 }
