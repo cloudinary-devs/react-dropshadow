@@ -1,6 +1,4 @@
 import {Cloudinary} from "@cloudinary/url-gen";
-import { backgroundRemoval } from "@cloudinary/url-gen/actions/effect";
-
 
 export function getOriginalUrl(publicID) {
 

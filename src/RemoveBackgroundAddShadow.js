@@ -16,7 +16,7 @@ export function getBackgroundRemovedShadowUrl(publicID) {
   // Apply the background removal and drop shadow effects
   myImage
   .effect(backgroundRemoval())
-  .effect(dropShadow());
+  .effect(dropShadow().azimuth(45).elevation(75).spread(45));
 
   // Return the URL of the image
   return myImage.toURL();
