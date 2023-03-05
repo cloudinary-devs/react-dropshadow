@@ -38,7 +38,7 @@ function valuetext(value) {
 
 
 
-export default function SpreadSlider({setSpread}) {
+export default function SpreadSlider({spread, setSpread}) {
 
 const handleChange = (event, newValue) => {
     setSpread(newValue);
@@ -51,7 +51,7 @@ const handleChange = (event, newValue) => {
       </Typography>
       <Slider
         aria-label="Always visible"
-        defaultValue={50}
+        defaultValue={spread}
         getAriaValueText={valuetext}
         step={1}
         marks={marks}

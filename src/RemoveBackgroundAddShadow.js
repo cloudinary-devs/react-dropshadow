@@ -1,5 +1,7 @@
 import {Cloudinary} from "@cloudinary/url-gen";
 import { backgroundRemoval, dropShadow } from "@cloudinary/url-gen/actions/effect";
+//import {fill} from "@cloudinary/url-gen/actions/resize";
+//import {autoGravity} from "@cloudinary/url-gen/qualifiers/gravity";
 
 
 export function getBackgroundRemovedShadowUrl(publicID, az, el, spr) {
@@ -17,6 +19,7 @@ export function getBackgroundRemovedShadowUrl(publicID, az, el, spr) {
   myImage
   .effect(backgroundRemoval())
   .effect(dropShadow().azimuth(az).elevation(el).spread(spr));
+ // .resize(fill().width(800).height(600).gravity(autoGravity()));
 
   // Return the URL of the image
   return myImage.toURL();

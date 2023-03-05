@@ -40,7 +40,7 @@ function valuetext(value) {
   return `${value}°`;
 }
 
-export default function ElevationSlider({setElevation}) {
+export default function ElevationSlider({elevation, setElevation}) {
 
 const handleChange = (event, newValue) => {
     setElevation(newValue);
@@ -53,7 +53,7 @@ const handleChange = (event, newValue) => {
       </Typography>
       <Slider
         aria-label="Always visible"
-        defaultValue={45}
+        defaultValue={elevation}
         getAriaValueText={valuetext}
         step={1}
         marks={marks}

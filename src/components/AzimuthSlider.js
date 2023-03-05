@@ -46,7 +46,7 @@ function valuetext(value) {
   return `${value}°`;
 }
 
-export default function AzimuthSlider({setAzimuth}) {
+export default function AzimuthSlider({azimuth, setAzimuth}) {
 
 const handleChange = (event, newValue) => {
     setAzimuth(newValue);
@@ -59,7 +59,7 @@ const handleChange = (event, newValue) => {
       </Typography>
       <Slider
         aria-label="Always visible"
-        defaultValue={215}
+        defaultValue={azimuth}
         getAriaValueText={valuetext}
         step={1}
         marks={marks}

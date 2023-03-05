@@ -12,23 +12,22 @@ const App = () => {
   const [spr, setSpread] = useState(50);
 
   function setDropShadowParams (az, el, spr) {
-  
     setAzimuth(az);
     setElevation(el);
     setSpread(spr);
-
   }
   
 
   return (
     <div className="App-body">
-      <h1>React Drop Shadow</h1>
+      <h1>Background Removal & Drop Shadow</h1>
       <RadioButtons displayOption={displayOption} onDisplayOptionChange={setDisplayOption}/>
 
-      <DropShadowOptions setDropShadowParams={setDropShadowParams}/>
+      <DropShadowOptions displayOption={displayOption} setDropShadowParams={setDropShadowParams}/>
       <div>&nbsp;</div>
 
       <PhotoAlbumComponent data={{displayOption: displayOption, az: az, el: el, spr: spr}}/>
+
     </div>
   )
 

@@ -1,4 +1,6 @@
 import {Cloudinary} from "@cloudinary/url-gen";
+//import {fill} from "@cloudinary/url-gen/actions/resize";
+//import {autoGravity} from "@cloudinary/url-gen/qualifiers/gravity";
 
 export function getOriginalUrl(publicID) {
 
@@ -9,7 +11,8 @@ export function getOriginalUrl(publicID) {
     }
   });
 
-  const myImage = cld.image(publicID); 
+  const myImage = cld.image(publicID);
+  //.resize(fill().width(800).height(600).gravity(autoGravity()));
 
   // Return the URL of the image
   return myImage.toURL();

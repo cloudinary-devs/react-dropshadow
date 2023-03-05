@@ -15,10 +15,10 @@ export default function RadioButtons({displayOption, onDisplayOptionChange}) {
   return (
     <div>
         <FormControl>
-        <FormLabel id="demo-radio-buttons-group-label">Choose how you want to display the images:</FormLabel>
+        <FormLabel id="radio-buttons-group-label">Choose how you want to display the images:</FormLabel>
         <RadioGroup
             row
-            aria-labelledby="demo-radio-buttons-group-label"
+            aria-labelledby="radio-buttons-group-label"
             name="radio-buttons-group"
             value={displayOption}
             onChange={setDisplay}
