@@ -5,20 +5,12 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-import PhotoAlbumComponent from './PhotoAlbum';
 
-export default function RadioButtons() {
-  const [value, setValue] = React.useState('original');
-  const [azimuth, setAzimuth] = React.useState(200);
+export default function RadioButtons({displayOption, onDisplayOptionChange}) {
 
   const setDisplay = (event) => {
-    setValue((event.target).value);
-    setAz(15);
+    onDisplayOptionChange(event.target.value);
   };
-
-  const setAz = (az) => {
-    setAzimuth(az);
-  }
 
   return (
     <div>
@@ -28,8 +20,7 @@ export default function RadioButtons() {
             row
             aria-labelledby="demo-radio-buttons-group-label"
             name="radio-buttons-group"
-            value={value}
-            azimuth={azimuth}
+            value={displayOption}
             onChange={setDisplay}
         >
             <FormControlLabel value="original" control={<Radio />} label="Original" />
@@ -37,7 +28,6 @@ export default function RadioButtons() {
             <FormControlLabel value="shadow" control={<Radio />} label="Drop Shadow" />
         </RadioGroup>
         </FormControl>
-        <PhotoAlbumComponent data={{value: value, az: azimuth}}/>
     </div>
   );
 }

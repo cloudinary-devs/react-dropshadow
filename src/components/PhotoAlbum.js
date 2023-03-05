@@ -9,9 +9,6 @@ import PhotoAlbum from "react-photo-album";
 
 const PhotoAlbumComponent = (props) => {
 
-  const el = 30;
-  const spr = 25;
-
   let photos = [
     { src: getOriginalUrl('docs/bl_1'), width: 800, height: 600 },
     { src: getOriginalUrl('docs/bl_2'), width: 800, height: 600 },
@@ -20,7 +17,7 @@ const PhotoAlbumComponent = (props) => {
     { src: getOriginalUrl('docs/bl_5'), width: 800, height: 600 },
   ];
 
-   if (props.data.value === "bgremoved")
+   if (props.data.displayOption === "bgremoved")
    {
       photos = [
         { src: getBackgroundRemovedUrl('docs/bl_1'), width: 800, height: 600 },
@@ -30,17 +27,17 @@ const PhotoAlbumComponent = (props) => {
         { src: getBackgroundRemovedUrl('docs/bl_5'), width: 800, height: 600 },
       ];
    }
-   else if (props.data.value === "shadow")
+   else if (props.data.displayOption === "shadow")
    {
       photos = [
-        { src: getBackgroundRemovedShadowUrl('docs/bl_1', props.data.az, el, spr), width: 800, height: 600 },
-        { src: getBackgroundRemovedShadowUrl('docs/bl_2', props.data.az, el, spr), width: 800, height: 600 },
-        { src: getBackgroundRemovedShadowUrl('docs/bl_3', props.data.az, el, spr), width: 800, height: 600 },
-        { src: getBackgroundRemovedShadowUrl('docs/bl_4', props.data.az, el, spr), width: 800, height: 600 },
-        { src: getBackgroundRemovedShadowUrl('docs/bl_5', props.data.az, el, spr), width: 800, height: 600 },
+        { src: getBackgroundRemovedShadowUrl('docs/bl_1', props.data.az, props.data.el, props.data.spr), width: 800, height: 600 },
+        { src: getBackgroundRemovedShadowUrl('docs/bl_2', props.data.az, props.data.el, props.data.spr), width: 800, height: 600 },
+        { src: getBackgroundRemovedShadowUrl('docs/bl_3', props.data.az, props.data.el, props.data.spr), width: 800, height: 600 },
+        { src: getBackgroundRemovedShadowUrl('docs/bl_4', props.data.az, props.data.el, props.data.spr), width: 800, height: 600 },
+        { src: getBackgroundRemovedShadowUrl('docs/bl_5', props.data.az, props.data.el, props.data.spr), width: 800, height: 600 },
     ];
   }
-  else if (props.data === "original")
+  else if (props.data.displayOption === "original")
   {
       photos = [
        { src: getOriginalUrl('docs/bl_1'), width: 800, height: 600 },
