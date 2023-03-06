@@ -1,60 +1,33 @@
 import './App.css';
-import './components/ProductGalleryWidget';
-
-// 1. Import classes
-// ==================
-
-import React from 'react'
-import {AdvancedImage} from '@cloudinary/react';
-import {Cloudinary} from "@cloudinary/url-gen";
-
-// Import any actions required for transformations.
-import {fill} from "@cloudinary/url-gen/actions/resize";
-import { backgroundRemoval, dropShadow } from "@cloudinary/url-gen/actions/effect";
-import ProductGalleryWidget from './components/ProductGalleryWidget';
+import { useState } from 'react';
+import DropShadowOptions from "./components/DropShadowOptions";
+import PhotoAlbumComponent from './components/PhotoAlbum';
+import DisplaySelection from './components/DisplaySelection';
+import ProductSelection from './components/ProductSelection';
 
 const App = () => {
 
+  const [productOption, setProductOption] = useState('furniture');
+  const [displayOption, setDisplayOption] = useState('original');
+  const [az, setAzimuth] = useState(215);
+  const [el, setElevation] = useState(45);
+  const [spr, setSpread] = useState(50);
 
-  // 2. Set your cloud name
-  //========================
-
-  // Create a Cloudinary instance and set your cloud name.
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName: 'demo'
-    }
-  });
-
-
-  // 3. Get your image
-  //===================
-
-  // Instantiate a CloudinaryImage object for the image with the public ID, 'docs/models'.
-  const myImage = cld.image('docs/bl_2'); 
-
-
-  // 4. Transform your image
-  //=========================
-
-  // Resize to 250 x 250 pixels using the 'fill' crop mode.
-  myImage
-   .effect(backgroundRemoval())
-   .effect(dropShadow())
-   .resize(fill().width(250).height(250));
-
-
-  // 5. Deliver your image
-  // =========================
-
-  // Render the image in a React component.
+  function setDropShadowParams (az, el, spr) {
+    setAzimuth(az);
+    setElevation(el);
+    setSpread(spr);
+  }
+  
   return (
     <div className="App-body">
-      <h1>React Drop Shadow</h1>
-      <div>
-        <AdvancedImage cldImg={myImage} />
-      </div>
-      <ProductGalleryWidget />
+      <h1>Background Removal & Drop Shadow</h1>
+      <ProductSelection productOption={productOption} onProductOptionChange={setProductOption}/>
+      <DisplaySelection displayOption={displayOption} onDisplayOptionChange={setDisplayOption}/>
+      <DropShadowOptions displayOption={displayOption} setDropShadowParams={setDropShadowParams}/>
+      <div>&nbsp;</div>
+      <PhotoAlbumComponent data={{productOption: productOption, displayOption: displayOption, az: az, el: el, spr: spr}}/>
+      <div>&nbsp;</div>
     </div>
   )
 
