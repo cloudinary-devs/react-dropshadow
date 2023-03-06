@@ -47,8 +47,8 @@ const PhotoAlbumComponent = (props) => {
       {
           photos.push({ src: getBackgroundRemovedShadowUrl(publicIds[i], widths[i], heights[i], props.data.az, props.data.el, props.data.spr), width: widths[i], height: heights[i], 
             images: [
-              { src: getBackgroundRemovedShadowUrl(publicIds[i], Math.ceil(widths[i]/2), Math.ceil(heights[i]/2)), width: Math.ceil(widths[i]/2, props.data.az, props.data.el, props.data.spr), height: Math.ceil(heights[i]/2) },
-              { src: getBackgroundRemovedShadowUrl(publicIds[i], Math.ceil(widths[i]/4), Math.ceil(heights[i]/4)), width: Math.ceil(widths[i]/4, props.data.az, props.data.el, props.data.spr), height: Math.ceil(heights[i]/4) }
+              { src: getBackgroundRemovedShadowUrl(publicIds[i], Math.ceil(widths[i]/2), Math.ceil(heights[i]/2), props.data.az, props.data.el, props.data.spr), width: Math.ceil(widths[i]/2), height: Math.ceil(heights[i]/2) },
+              { src: getBackgroundRemovedShadowUrl(publicIds[i], Math.ceil(widths[i]/4), Math.ceil(heights[i]/4), props.data.az, props.data.el, props.data.spr), width: Math.ceil(widths[i]/4), height: Math.ceil(heights[i]/4) }
             ]});
       }
   }

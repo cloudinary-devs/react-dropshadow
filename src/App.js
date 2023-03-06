@@ -2,7 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import DropShadowOptions from "./components/DropShadowOptions";
 import PhotoAlbumComponent from './components/PhotoAlbum';
-import RadioButtons from './components/RadioButtons';
+import DisplaySelection from './components/DisplaySelection';
 import ProductSelection from './components/ProductSelection';
 
 const App = () => {
@@ -19,18 +19,15 @@ const App = () => {
     setSpread(spr);
   }
   
-
   return (
     <div className="App-body">
       <h1>Background Removal & Drop Shadow</h1>
       <ProductSelection productOption={productOption} onProductOptionChange={setProductOption}/>
-      <RadioButtons displayOption={displayOption} onDisplayOptionChange={setDisplayOption}/>
-
+      <DisplaySelection displayOption={displayOption} onDisplayOptionChange={setDisplayOption}/>
       <DropShadowOptions displayOption={displayOption} setDropShadowParams={setDropShadowParams}/>
       <div>&nbsp;</div>
-
       <PhotoAlbumComponent data={{productOption: productOption, displayOption: displayOption, az: az, el: el, spr: spr}}/>
-
+      <div>&nbsp;</div>
     </div>
   )
 

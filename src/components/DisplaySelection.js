@@ -6,7 +6,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-export default function RadioButtons({displayOption, onDisplayOptionChange}) {
+export default function DisplaySelection({displayOption, onDisplayOptionChange}) {
 
   const setDisplay = (event) => {
     onDisplayOptionChange(event.target.value);
