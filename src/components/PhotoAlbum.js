@@ -8,115 +8,59 @@ import PhotoAlbum from "react-photo-album";
 // Uses https://react-photo-album.com/
 
 const PhotoAlbumComponent = (props) => {
+  
+  let publicIds = [];
+  let widths = [];
+  let heights = [];
 
-  const product="furniture";
-
-  let publicId1 = 'docs/furniture/chair1';
-  let publicId2 = 'docs/furniture/chair2';
-  let publicId3 = 'docs/furniture/chair6';
-  let publicId4 = 'docs/furniture/chair4';
-  let publicId5 = 'docs/furniture/chair5';
-
-  let w1 = 1920;
-  let h1 = 1257;
-
-  let w2 = 1280;
-  let h2 = 1920;
-
-  let w3 = 1920;
-  let h3 = 1288;
-
-  let w4 = 1920;
-  let h4 = 1280;
-
-  let w5 = 1272;
-  let h5 = 1920;
-
-  if (product === "cars")
-  {
-    publicId1 = 'docs/cars/car1';
-    publicId2 = 'docs/cars/car2';
-    publicId3 = 'docs/cars/car3';
-    publicId4 = 'docs/cars/car4';
-    publicId5 = 'docs/cars/car5';
-
-    w1 = 1920;
-    h1 = 1280;
-
-    w2 = 1920;
-    h2 = 1278;
-
-    w3 = 1920;
-    h3 = 1278;
-
-    w4 = 1920;
-    h4 = 1280;
-
-    w5 = 1920;
-    h5 = 975;
+  if (props.data.productOption === "cars"){
+      publicIds = ['docs/cars/car1','docs/cars/car2','docs/cars/car3','docs/cars/car4','docs/cars/car5'];
+      widths = [1920, 1920, 1920, 1920, 1920];
+      heights = [1280, 1278, 1278, 1280, 975];
   }
 
-  else if (product === "furniture")
-  {
-    publicId1 = 'docs/bl_1';
-    publicId2 = 'docs/bl_2';
-    publicId3 = 'docs/bl_3';
-    publicId4 = 'docs/bl_4';
-    publicId5 = 'docs/bl_5';
-
-    w1 = 480;
-    h1 = 350;
-
-    w2 = 480;
-    h2 = 350;
-
-    w3 = 480;
-    h3 = 350;
-
-    w4 = 480;
-    h4 = 350;
-
-    w5 = 480;
-    h5 = 350;    
+  else if (props.data.productOption === "furniture"){
+      publicIds = ['docs/bl_1','docs/bl_2','docs/bl_3','docs/bl_4','docs/bl_5'];
+      widths = [480, 480, 480, 480, 480];
+      heights = [350, 350, 350, 350, 350];
+  }
+  else if (props.data.productOption === "chairs"){
+      publicIds = ['docs/furniture/chair1','docs/furniture/chair2','docs/furniture/chair6','docs/furniture/chair4','docs/furniture/chair5'];
+      widths = [1920, 1280, 1920, 1920, 1272];
+      heights = [1257, 1920, 1288, 1280, 1920];
   }
 
-  let photos = [
-    { src: getOriginalUrl(publicId1), width: w1, height: h1 },
-    { src: getOriginalUrl(publicId2), width: w2, height: h2 },
-    { src: getOriginalUrl(publicId3), width: w3, height: h3 },
-    { src: getOriginalUrl(publicId4), width: w4, height: h4 },
-    { src: getOriginalUrl(publicId5), width: w5, height: h5 },
-  ];
+  let photos = [];
 
-   if (props.data.displayOption === "bgremoved")
-   {
-      photos = [
-        { src: getBackgroundRemovedUrl(publicId1), width: w1, height: h1 },
-        { src: getBackgroundRemovedUrl(publicId2), width: w2, height: h2 },
-        { src: getBackgroundRemovedUrl(publicId3), width: w3, height: h3 },
-        { src: getBackgroundRemovedUrl(publicId4), width: w4, height: h4 },
-        { src: getBackgroundRemovedUrl(publicId5), width: w5, height: h5 },
-      ];
+   if (props.data.displayOption === "bgremoved"){
+      for (let i=0; i<5; i++)
+      {
+          photos.push({ src: getBackgroundRemovedUrl(publicIds[i], widths[i], heights[i]), width: widths[i], height: heights[i], 
+            images: [
+              { src: getBackgroundRemovedUrl(publicIds[i], Math.ceil(widths[i]/2), Math.ceil(heights[i]/2)), width: Math.ceil(widths[i]/2), height: Math.ceil(heights[i]/2) },
+              { src: getBackgroundRemovedUrl(publicIds[i], Math.ceil(widths[i]/4), Math.ceil(heights[i]/4)), width: Math.ceil(widths[i]/4), height: Math.ceil(heights[i]/4) }
+            ]});
+      }
    }
-   else if (props.data.displayOption === "shadow")
-   {
-      photos = [
-        { src: getBackgroundRemovedShadowUrl(publicId1, props.data.az, props.data.el, props.data.spr), width: w1, height: h1 },
-        { src: getBackgroundRemovedShadowUrl(publicId2, props.data.az, props.data.el, props.data.spr), width: w2, height: h2 },
-        { src: getBackgroundRemovedShadowUrl(publicId3, props.data.az, props.data.el, props.data.spr), width: w3, height: h3 },
-        { src: getBackgroundRemovedShadowUrl(publicId4, props.data.az, props.data.el, props.data.spr), width: w4, height: h4 },
-        { src: getBackgroundRemovedShadowUrl(publicId5, props.data.az, props.data.el, props.data.spr), width: w5, height: h5 },
-    ];
+   else if (props.data.displayOption === "shadow"){
+      for (let i=0; i<5; i++)
+      {
+          photos.push({ src: getBackgroundRemovedShadowUrl(publicIds[i], widths[i], heights[i], props.data.az, props.data.el, props.data.spr), width: widths[i], height: heights[i], 
+            images: [
+              { src: getBackgroundRemovedShadowUrl(publicIds[i], Math.ceil(widths[i]/2), Math.ceil(heights[i]/2)), width: Math.ceil(widths[i]/2, props.data.az, props.data.el, props.data.spr), height: Math.ceil(heights[i]/2) },
+              { src: getBackgroundRemovedShadowUrl(publicIds[i], Math.ceil(widths[i]/4), Math.ceil(heights[i]/4)), width: Math.ceil(widths[i]/4, props.data.az, props.data.el, props.data.spr), height: Math.ceil(heights[i]/4) }
+            ]});
+      }
   }
-  else if (props.data.displayOption === "original")
-  {
-      photos = [
-       { src: getOriginalUrl(publicId1), width: w1, height: h1 },
-       { src: getOriginalUrl(publicId2), width: w2, height: h2 },
-       { src: getOriginalUrl(publicId3), width: w3, height: h3 },
-       { src: getOriginalUrl(publicId4), width: w4, height: h4 },
-       { src: getOriginalUrl(publicId5), width: w5, height: h5 },
-     ];    
+  else if (props.data.displayOption === "original"){
+      for (let i=0; i<5; i++)
+      {
+          photos.push({ src: getOriginalUrl(publicIds[i], widths[i], heights[i]), width: widths[i], height: heights[i], 
+            images: [
+              { src: getOriginalUrl(publicIds[i], Math.ceil(widths[i]/2), Math.ceil(heights[i]/2)), width: Math.ceil(widths[i]/2), height: Math.ceil(heights[i]/2) },
+              { src: getOriginalUrl(publicIds[i], Math.ceil(widths[i]/4), Math.ceil(heights[i]/4)), width: Math.ceil(widths[i]/4), height: Math.ceil(heights[i]/4) }
+            ]});
+      }
   }
 
     return (

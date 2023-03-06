@@ -2,6 +2,8 @@
   text-align: center;
   font-size: calc(8px + 2vmin);
   color: black;
+  max-width:95%;
+  margin:auto;
 }
 
 .gallery {

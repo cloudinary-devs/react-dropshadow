@@ -1,10 +1,8 @@
 import {Cloudinary} from "@cloudinary/url-gen";
 import { backgroundRemoval, dropShadow } from "@cloudinary/url-gen/actions/effect";
-//import {fill} from "@cloudinary/url-gen/actions/resize";
-//import {autoGravity} from "@cloudinary/url-gen/qualifiers/gravity";
+import {scale} from "@cloudinary/url-gen/actions/resize";
 
-
-export function getBackgroundRemovedShadowUrl(publicID, az, el, spr) {
+export function getBackgroundRemovedShadowUrl(publicID, width, height, az, el, spr) {
 
   // Create a Cloudinary instance and set your cloud name.
   const cld = new Cloudinary({
@@ -18,8 +16,10 @@ export function getBackgroundRemovedShadowUrl(publicID, az, el, spr) {
   // Apply the background removal and drop shadow effects
   myImage
   .effect(backgroundRemoval())
-  .effect(dropShadow().azimuth(az).elevation(el).spread(spr));
- // .resize(fill().width(800).height(600).gravity(autoGravity()));
+  .effect(dropShadow().azimuth(az).elevation(el).spread(spr))
+  .resize(scale().width(width).height(height))
+  .format('auto')
+  .quality('auto');
 
   // Return the URL of the image
   return myImage.toURL();

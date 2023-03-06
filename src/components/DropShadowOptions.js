@@ -22,7 +22,7 @@ export default function DropShadowOptions({displayOption, setDropShadowParams}) 
   return (
     <div>   
     <FormControl>
-    <FormLabel id="shadow-sliders-group-label">Set the light source for your shadow:</FormLabel>
+    <FormLabel id="shadow-sliders-group-label">Set the light source for the shadow:</FormLabel>
     <div>&nbsp;</div>
     <AzimuthSlider azimuth={azimuth} setAzimuth={setAzimuth}/>
     <ElevationSlider elevation={elevation} setElevation={setElevation}/>

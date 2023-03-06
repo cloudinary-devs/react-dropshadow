@@ -1,8 +1,7 @@
 import {Cloudinary} from "@cloudinary/url-gen";
-//import {fill} from "@cloudinary/url-gen/actions/resize";
-//import {autoGravity} from "@cloudinary/url-gen/qualifiers/gravity";
+import {scale} from "@cloudinary/url-gen/actions/resize";
 
-export function getOriginalUrl(publicID) {
+export function getOriginalUrl(publicID, width, height) {
 
   // Create a Cloudinary instance and set your cloud name.
   const cld = new Cloudinary({
@@ -11,8 +10,10 @@ export function getOriginalUrl(publicID) {
     }
   });
 
-  const myImage = cld.image(publicID);
-  //.resize(fill().width(800).height(600).gravity(autoGravity()));
+  const myImage = cld.image(publicID)
+    .resize(scale().width(width).height(height))
+    .format('auto')
+    .quality('auto');
 
   // Return the URL of the image
   return myImage.toURL();
