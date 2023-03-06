@@ -1,5 +1,5 @@
 # react-dropshadow
-Example of using background removal and drop shadow in a React app 
+Example of using background removal and drop shadow in a React app. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
