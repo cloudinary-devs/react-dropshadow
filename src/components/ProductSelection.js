@@ -15,18 +15,17 @@ export default function ProductSelection({productOption, onProductOptionChange})
   return (
     <div>
         <FormControl>
-        <FormLabel id="radio-buttons-group-label">Choose a set of product images:</FormLabel>
-        <RadioGroup
-            row
-            aria-labelledby="radio-buttons-group-label"
-            name="radio-buttons-group"
-            value={productOption}
-            onChange={setProduct}
-        >
-            <FormControlLabel value="furniture" control={<Radio />} label="Furniture" />
-            <FormControlLabel value="chairs" control={<Radio />} label="Chairs" />
-            <FormControlLabel value="cars" control={<Radio />} label="Cars" />
-        </RadioGroup>
+          <FormLabel id="radio-buttons-group-label">Choose a set of product images:</FormLabel>
+          <RadioGroup
+              row
+              aria-labelledby="radio-buttons-group-label"
+              name="radio-buttons-group"
+              value={productOption}
+              onChange={setProduct}>
+              <FormControlLabel value="furniture" control={<Radio />} label="Furniture" />
+              <FormControlLabel value="chairs" control={<Radio />} label="Chairs" />
+              <FormControlLabel value="cars" control={<Radio />} label="Cars" />
+          </RadioGroup>
         </FormControl>
     </div>
   );

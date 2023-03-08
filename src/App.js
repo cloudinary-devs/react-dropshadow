@@ -25,9 +25,10 @@ const App = () => {
       <ProductSelection productOption={productOption} onProductOptionChange={setProductOption}/>
       <DisplaySelection displayOption={displayOption} onDisplayOptionChange={setDisplayOption}/>
       <DropShadowOptions displayOption={displayOption} setDropShadowParams={setDropShadowParams}/>
-      <div>&nbsp;</div>
-      <PhotoAlbumComponent data={{productOption: productOption, displayOption: displayOption, az: az, el: el, spr: spr}}/>
-      <div>&nbsp;</div>
+      <div className="spacing"></div>
+      <PhotoAlbumComponent data={{productOption: productOption, displayOption: displayOption, 
+        az: az, el: el, spr: spr}}/>
+      <div className="spacing"></div>
     </div>
   )
 

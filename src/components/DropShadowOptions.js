@@ -14,23 +14,22 @@ export default function DropShadowOptions({displayOption, setDropShadowParams}) 
   const [elevation, setElevation] = useState(45);
   const [spread, setSpread] = useState(50);
 
-  if (displayOption !== 'shadow')
-  {
+  if (displayOption !== 'shadow') {
     return null;
   }
 
   return (
     <div>   
-    <FormControl>
-    <FormLabel id="shadow-sliders-group-label">Set the light source for the shadow:</FormLabel>
-    <div>&nbsp;</div>
-    <AzimuthSlider azimuth={azimuth} setAzimuth={setAzimuth}/>
-    <ElevationSlider elevation={elevation} setElevation={setElevation}/>
-    <SpreadSlider spread={spread} setSpread={setSpread}/>
-    </FormControl>
-    <div>
-    <Button size="small" variant="contained" onClick={() => {setDropShadowParams(azimuth, elevation, spread)}}>Submit</Button>
-    </div>
+      <FormControl>
+        <FormLabel id="shadow-sliders-group-label">Set the light source for the shadow:</FormLabel>
+        <div className="spacing"></div>
+        <AzimuthSlider azimuth={azimuth} setAzimuth={setAzimuth}/>
+        <ElevationSlider elevation={elevation} setElevation={setElevation}/>
+        <SpreadSlider spread={spread} setSpread={setSpread}/>
+      </FormControl>
+      <div>
+        <Button size="small" variant="contained" onClick={() => {setDropShadowParams(azimuth, elevation, spread)}}>Submit</Button>
+      </div>
     </div>
   );
 }
