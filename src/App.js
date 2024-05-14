@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import { useState } from 'react';
 import DropShadowOptions from "./components/DropShadowOptions";
 import PhotoAlbumComponent from './components/PhotoAlbum';
